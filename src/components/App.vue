@@ -23,9 +23,6 @@ export default {
     },
     onwheel(e) {
       this.scale *= 1 + -1 * e.deltaY / 100 / 8;
-      //offsetから、this.mousexを引く
-      // this.offset -= this.mousex * this.scale;
-      // this.offset = this.mousex / this.svg.w * this.area.w;
       this.offset = this.viewport.x + this.mousex - this.viewport.w / 2;
       this.fixrange();
     },
@@ -36,8 +33,7 @@ export default {
         this.offset = (x - this.dragOffset) / this.svg.w * this.area.w;
         this.fixrange();
       }
-
-      //マウスホイール用に必要？
+      //マウスホイール用に必要
       this.mousex = x;
     },
     onpointerup(e) {
